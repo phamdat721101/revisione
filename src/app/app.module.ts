@@ -14,9 +14,11 @@ import { PostComponent } from './post/post.component';
 import { OrderComponent } from './order/order.component';
 import { ListComponent } from './list/list.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
-  { path: '', component:DashboardComponent , pathMatch: 'full'},
+  { path: '', component:LoginComponent , pathMatch: 'full'},
+  { path: 'Dashboard', component:DashboardComponent},
   { path: 'Explore', component:ExploreComponent},
   { path: 'Review', component:ReviewComponent},
   { path: 'User', component:UserComponent},
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     UserComponent,
     PostComponent,
     OrderComponent,
-    ListComponent
+    ListComponent,
+    LoginComponent
   ],
   imports: [
     RouterModule.forRoot(
