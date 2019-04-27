@@ -3,7 +3,10 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "module": "es2015",
-    "types": []
+    "types": [
+      "googlemaps",
+      "jasmine"
+    ]
   },
   "exclude": [
     "src/test.ts",

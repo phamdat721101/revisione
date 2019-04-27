@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; 
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { OwlModule } from 'ngx-owl-carousel';
@@ -13,8 +14,12 @@ import { UserComponent } from './user/user.component';
 import { PostComponent } from './post/post.component';
 import { OrderComponent } from './order/order.component';
 import { ListComponent } from './list/list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+/*--Import service--*/
+import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
+import { AppHttpClient } from './services/app-http.service';
 
 const appRoutes: Routes = [
   { path: '', component:LoginComponent , pathMatch: 'full'},
@@ -49,9 +54,15 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
     OwlModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+    AuthService,
+    AppHttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
