@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router, NavigationEnd } from '@angular/router';
-import * as $ from 'jquery';
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
   constructor(private router: Router) { }
@@ -13,10 +10,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
   searchPlace(value: any){
-    this.router.navigate(["/Search"]);
-  }
-  searchEvent(value: any){
-    this.router.navigate(["/Search"]);
+    this.router.navigate(["/search"]);
   }
 
 }
