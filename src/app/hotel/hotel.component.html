@@ -17,13 +17,13 @@
                     
 <!-- TO DO (FEATURE/REVIEW): insert into db-->
                     <div class="contact-form-widget mt-50" style="background-color: #f3edff;">
-                        <form action="#">
+                        <form [formGroup]="createReviewForm" (ngSubmit)="onSubmit(createReviewForm.value)">
                             <div class="row">
                                 <div class="col-12">
-                                    <input type="text" name="name" class="form-control" placeholder="Title">
+                                    <input type="text" formControlName="title" class="form-control" placeholder="Title">
                                 </div>
                                 <div class="col-12">
-                                    <textarea name="message" class="form-control" id="Message" cols="30" rows="10" placeholder="Contents"></textarea>
+                                    <textarea formControlName="content" class="form-control" id="Message" cols="30" rows="10" placeholder="Contents"></textarea>
                                 </div>
                                 <div class="col-12">
 <!-- TO DO (FEATURE/REVIEW):review function-->

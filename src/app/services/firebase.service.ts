@@ -22,6 +22,13 @@ export class FirebaseService {
     .snapshotChanges();
   }
 
+  createReview(value) {
+    return this.db.collection(`reviews`).add({
+      title: value.title,
+      content: value.content
+    });
+  }
+
 //   updateUser(userKey, value){
 //     value.nameToSearch = value.name.toLowerCase();
 //     return this.db.collection('users').doc(userKey).set(value);
