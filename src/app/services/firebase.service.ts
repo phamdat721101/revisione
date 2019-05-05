@@ -29,6 +29,17 @@ export class FirebaseService {
     });
   }
 
+  createOrder(value) {
+    var end = new Date(value.time);
+    end.setDate(end.getDate() + value.day)
+    return this.db.collection(`orders`).add({
+      uid: value.uid,
+      hid: value.hid,
+      start: new Date(value.time),
+      end: end,
+      room: value.room
+    });
+  }
 //   updateUser(userKey, value){
 //     value.nameToSearch = value.name.toLowerCase();
 //     return this.db.collection('users').doc(userKey).set(value);
@@ -50,16 +61,5 @@ export class FirebaseService {
 
 //   searchUsersByAge(value){
 //     return this.db.collection('users',ref => ref.orderBy('age').startAt(value)).snapshotChanges();
-//   }
-
-
-//   createUser(value, avatar){
-//     return this.db.collection('users').add({
-//       name: value.name,
-//       nameToSearch: value.name.toLowerCase(),
-//       surname: value.surname,
-//       age: parseInt(value.age),
-//       avatar: avatar
-//     });
 //   }
 }
