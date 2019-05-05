@@ -52,14 +52,11 @@
             
             <div class="col-12 col-md-8 col-lg-4">
                 <div class="listing-sidebar">         
-                    <div class="book-a-table-widget mt-50">
-                        <form action="#" method="get">
-<!-- TO DO (FEATURE/ORDER):calendar-->
-                            <select class="custom-select" id="destinations">
-                            <option selected>Calendar</option>
-                        </select>
-                        <input class="custom-select" id="room" type="number" placeholder="Number of rooms">
-<!-- TO DO (FEATURE/ORDER):order function-->
+                    <div *ngIf="auth.user$ | async as user" class="book-a-table-widget mt-50">
+                        <form [formGroup]="orderForm" (ngSubmit)="onOrder(orderForm.value)">
+                            <input class="custom-select" type="date" formControlName="time" placeholder="Date" >
+                            <input class="custom-select" type="number" formControlName="room" placeholder="Number of rooms">
+                            <input class="custom-select" type="number" formControlName="day" placeholder="Number of days">
                             <button type="submit" class="btn dorne-btn bg-white text-dark">Book</button>
                         </form>
                     </div>
