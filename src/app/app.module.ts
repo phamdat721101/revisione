@@ -4,54 +4,45 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { OwlModule } from 'ngx-owl-carousel';
 import { AppComponent } from './app.component';
-import { SearchComponent } from './search/search.component';
 import { NavComponent } from './nav/nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FooterComponent } from './footer/footer.component';
-import { ExploreComponent } from './explore/explore.component';
-import { ReviewComponent } from './review/review.component';
+import { HotelComponent } from './hotel/hotel.component';
+import { HotelResolver } from './hotel/hotel.resolver';
 import { UserComponent } from './user/user.component';
-import { PostComponent } from './post/post.component';
-import { OrderComponent } from './order/order.component';
 import { ListComponent } from './list/list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
 /*--Import service--*/
-import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
-import { AppHttpClient } from './services/app-http.service';
+
+// Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
-  { path: '', component:LoginComponent , pathMatch: 'full'},
-  { path: 'Dashboard', component:DashboardComponent},
-  { path: 'Explore', component:ExploreComponent},
-  { path: 'Review', component:ReviewComponent},
-  { path: 'User', component:UserComponent},
-  { path: 'Post', component: PostComponent},
-  { path: 'Order',  component: OrderComponent},
-  { path: 'Search', component: ListComponent}
+  { path: '', component:DashboardComponent},
+  { path: 'hotel/:id', component:HotelComponent, resolve:{data : HotelResolver}},
+  { path: 'user', component:UserComponent},
+  { path: 'search', component: ListComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent,
     NavComponent,
     DashboardComponent,
-    FooterComponent,
-    ExploreComponent,
-    ReviewComponent,
+    HotelComponent,
     UserComponent,
-    PostComponent,
-    OrderComponent,
-    ListComponent,
-    LoginComponent
+    ListComponent
   ],
   imports: [
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule, // Database features
+    AngularFireAuthModule, // Auth features,
+    AngularFireStorageModule, // Storage features
+    RouterModule.forRoot(appRoutes, { useHash: false }),
     BrowserModule,
     OwlModule,
     HttpClientModule,
@@ -59,9 +50,8 @@ const appRoutes: Routes = [
     FormsModule
   ],
   providers: [
-    UserService,
     AuthService,
-    AppHttpClient
+    HotelResolver
   ],
   bootstrap: [AppComponent]
 })

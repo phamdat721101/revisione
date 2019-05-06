@@ -1,0 +1,67 @@
+<app-nav></app-nav>
+<div class="breadcumb-area height-700 bg-img bg-overlay" [ngStyle]="{'background-image': 'url(' + item.image + ')'}"></div>
+<section class="dorne-single-listing-area section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="single-listing-content">
+
+                    <div class="listing-title">
+                        <h4>{{item.name}}</h4> 
+                        <h6>{{item.address}}, {{item.place}}</h6>
+                    </div>
+
+                    <div class="overview-content mt-50" id="overview">
+                        <p>{{item.description}}</p>
+                    </div>
+                    
+<!-- TO DO (FEATURE/REVIEW): insert into db-->
+                    <div class="contact-form-widget mt-50" style="background-color: #f3edff;">
+                        <form [formGroup]="createReviewForm" (ngSubmit)="onSubmit(createReviewForm.value)">
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" formControlName="title" class="form-control" placeholder="Title">
+                                </div>
+                                <div class="col-12">
+                                    <textarea formControlName="content" class="form-control" id="Message" cols="30" rows="10" placeholder="Contents"></textarea>
+                                </div>
+                                <div class="col-12">
+<!-- TO DO (FEATURE/REVIEW):review function-->
+                                    <button type="submit" class="btn dorne-btn">Comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="listing-reviews-area mt-100" id="review" *ngFor="let comment of comment$">
+                        <h6>{{comment.payload.doc.data().user}}</h6>
+                        <div class="single-review-area">
+                            <div class="reviewer-meta d-flex align-items-center">
+                                <div class="reviewer-content">
+                                    <div class="review-title-ratings d-flex justify-content-between">
+                                        <h5>{{comment.payload.doc.data().title}}</h5><h6 style="position: absolute; right: 0px;">{{comment.payload.doc.data().created_at.seconds * 1000 | date}}</h6>
+                                    </div>
+                                    {{comment.payload.doc.data().content}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="col-12 col-md-8 col-lg-4">
+                <div class="listing-sidebar">         
+                    <div *ngIf="auth.user$ | async as user" class="book-a-table-widget mt-50">
+                        <form [formGroup]="orderForm" (ngSubmit)="onOrder(orderForm.value)">
+                            <input class="custom-select" type="date" formControlName="time" placeholder="Date" >
+                            <input class="custom-select" type="number" formControlName="room" placeholder="Number of rooms">
+                            <input class="custom-select" type="number" formControlName="day" placeholder="Number of days">
+                            <button type="submit" class="btn dorne-btn bg-white text-dark">Book</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
