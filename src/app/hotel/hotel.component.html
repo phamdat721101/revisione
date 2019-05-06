@@ -16,7 +16,7 @@
                     </div>
                     
 <!-- TO DO (FEATURE/REVIEW): insert into db-->
-                    <div class="contact-form-widget mt-50" style="background-color: #f3edff;">
+                    <div  *ngIf="auth.user$ | async as user" class="contact-form-widget mt-50" style="background-color: #f3edff;">
                         <form [formGroup]="createReviewForm" (ngSubmit)="onSubmit(createReviewForm.value)">
                             <div class="row">
                                 <div class="col-12">

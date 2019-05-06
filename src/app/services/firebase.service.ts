@@ -27,7 +27,8 @@ export class FirebaseService {
       title: value.title,
       content: value.content,
       hid: value.hid,
-      created_at: value.created_at
+      created_at: value.created_at,
+      user: value.user
     });
   }
 
