@@ -25,7 +25,9 @@ export class FirebaseService {
   createReview(value) {
     return this.db.collection(`reviews`).add({
       title: value.title,
-      content: value.content
+      content: value.content,
+      hid: value.hid,
+      created_at: value.created_at
     });
   }
 

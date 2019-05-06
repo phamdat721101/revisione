@@ -58,15 +58,16 @@ export class HotelComponent implements OnInit {
     this.createReviewForm = this.fb.group({
       title: new FormControl(),
       content: new FormControl(),
+      hid: this.item.id,
+      created_at: new Date()
     });
   }
 
   onSubmit(value){
-    console.log("here");
     this.firebaseService.createReview(value)
     .then (
       res => {
-        this.router.navigate(['/hotel/' + this.item.id]);
+        window.location.reload();
       }
     )
   }
