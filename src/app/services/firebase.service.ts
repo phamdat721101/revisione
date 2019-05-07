@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database-deprecated";
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,10 @@ export class FirebaseService {
       end: end,
       room: value.room
     });
+  }
+
+  searchPlaces(start){
+    return this.db.collection('hotels', ref => ref.orderBy("email")).snapshotChanges();
   }
 //   updateUser(userKey, value){
 //     value.nameToSearch = value.name.toLowerCase();

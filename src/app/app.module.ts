@@ -20,6 +20,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { ExploreComponent } from './explore/explore.component';
 
 const appRoutes: Routes = [
   { path: '', component:DashboardComponent},
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     HotelComponent,
     UserComponent,
-    ListComponent
+    ListComponent,
+    ExploreComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

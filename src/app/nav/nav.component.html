@@ -6,8 +6,17 @@
                     <i class="pe-7s-close-circle" aria-hidden="true"></i>
                 </div>
                 <form (ngSubmit)="search()">
-                    <input type="text" name="caviarSearch" id="search" placeholder="Search Your Desired Destination">
-                    <input type="submit" class="d-none" value="submit">
+                    <input (keydown)="onChange($event)" type="text" name="caviarSearch" id="search" placeholder="Search Your Desired Destination">
+                    <div *ngFor="let place of places">
+                        <h4>{{place.payload.doc.data().name}}</h4>                        
+                    </div>                      
+                    <div *ngIf="places?.length < 1">
+                        <hr>
+                        <p>
+                            No results found :(
+                        </p>
+                    </div>
+                    <input type="submit" class="d-none" value="submit">                
                 </form>
             </div>
         </div>
