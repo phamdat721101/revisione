@@ -45,6 +45,9 @@ export class FirebaseService {
   searchPlaces(start){
     return this.db.collection('hotels', ref => ref.orderBy("email")).snapshotChanges();
   }
+  searchPlaceFilter(places, price){
+    return this.db.collection('hotels', ref => ref.where("place","==",places).where("price","==",price)).snapshotChanges();
+  }
 //   updateUser(userKey, value){
 //     value.nameToSearch = value.name.toLowerCase();
 //     return this.db.collection('users').doc(userKey).set(value);

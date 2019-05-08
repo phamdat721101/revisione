@@ -7,8 +7,8 @@
                 </div>
                 <form (ngSubmit)="search()">
                     <input (keydown)="onChange($event)" type="text" name="caviarSearch" id="search" placeholder="Search Your Desired Destination">
-                    <div *ngFor="let place of places">
-                        <h4>{{place.payload.doc.data().name}}</h4>                        
+                    <div *ngFor="let place of places" style="background-color: white;">
+                        <h4><a [routerLink]="['/hotel/',place.payload.doc.id]">{{place.payload.doc.data().name}}</a></h4>                        
                     </div>                      
                     <div *ngIf="places?.length < 1">
                         <hr>

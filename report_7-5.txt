@@ -1,0 +1,80 @@
+commit 9c0d6bcbd3cd9142d57111e6fa341b02f93d2aeb
+Author: Dat_Pham <intern.pqdat@tma.com.vn>
+Date:   Tue May 7 19:24:43 2019 +0700
+
+    update_search_engine
+
+commit f4c80e88463718bd0064e5a9398b30b0a27efabd
+Author: Dat_Pham <intern.pqdat@tma.com.vn>
+Date:   Mon May 6 08:30:54 2019 +0700
+
+    start_search
+
+commit 01b9c4cccec3e6b7971915a6df3773612fe93384
+Merge: bba6e55 ce0017c
+Author: Lê Nguyễn Minh Khôi <44190428+mkhoi1998@users.noreply.github.com>
+Date:   Sun May 5 20:05:52 2019 +0700
+
+    Merge pull request #1 from phamdat721101/feature/order
+    
+    Feature order
+
+commit ce0017c58c552b80cbaa3ef1f1142b58bc81b8ce
+Author: mk <mkhoi1998@gmail.comgit>
+Date:   Sun May 5 19:54:26 2019 +0700
+
+    Feature order
+
+commit cc3724bb500f7587a79be52e819fe692ec8b7156
+Author: mthu <1652599@hcmut.edu.vn>
+Date:   Sat May 4 11:35:21 2019 +0700
+
+    more fields added to a database record
+
+commit bba6e55477824b5f65a34cf17b6e11f4eee7dbd7
+Author: mthu <1652599@hcmut.edu.vn>
+Date:   Sat May 4 10:44:30 2019 +0700
+
+    update firebase when add new review
+
+commit fd031588525e25c4920cceea510f61cd34dabe1e
+Author: mk <mkhoi1998@gmail.comgit>
+Date:   Fri May 3 15:54:34 2019 +0700
+
+    clean architecture
+
+commit 6092bc264664551cecec1db85af655c09453d9a3
+Author: Dat_Pham <intern.pqdat@tma.com.vn>
+Date:   Sat Apr 27 10:21:38 2019 +0700
+
+    back-end, login
+
+commit 43a6e0c73c3cdef48495b8c876753cb6083cca80
+Author: Dat_Pham <intern.pqdat@tma.com.vn>
+Date:   Fri Apr 19 09:43:42 2019 +0700
+
+    new_version
+
+commit 92f6e3e3e93d17b84df603645595616ab349dd11
+Author: Dat_Pham <intern.pqdat@tma.com.vn>
+Date:   Tue Apr 9 18:08:55 2019 +0700
+
+    new_version
+
+commit 16f71b15b44d99df793b488d7450a74bb3cb2d09
+Author: Dat_Pham <intern.pqdat@tma.com.vn>
+Date:   Tue Apr 9 15:21:46 2019 +0700
+
+    new_version
+
+commit ec465b733b8092bf4452981e412931a2a4cb1d24
+Author: Dat_Pham <intern.pqdat@tma.com.vn>
+Date:   Sat Apr 6 21:30:34 2019 +0700
+
+    revisione
+
+commit fa79a994a6ff634d73996e4d4a3a0e7045f7ddd2
+Author: Dat_Pham <intern.pqdat@tma.com.vn>
+Date:   Sat Apr 6 19:38:24 2019 +0700
+
+    initial commit
