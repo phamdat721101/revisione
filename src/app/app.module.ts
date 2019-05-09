@@ -20,11 +20,13 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
   { path: '', component:DashboardComponent},
   { path: 'hotel/:id', component:HotelComponent, resolve:{data : HotelResolver}},
   { path: 'user', component:UserComponent},
+  { path: 'profile', component:ProfileComponent},
   { path: 'search', component: ListComponent}
 ];
 
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     HotelComponent,
     UserComponent,
-    ListComponent
+    ListComponent,
+    ProfileComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
