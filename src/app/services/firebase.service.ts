@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database-deprecated";
 
 @Injectable({
   providedIn: 'root'
