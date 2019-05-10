@@ -48,7 +48,7 @@ export class HotelComponent implements OnInit {
       time: new FormControl(),
       room: new FormControl(),
       day: new FormControl(),
-      hid: this.item.id,
+      hotel: this.item.name,
     });
   }
 

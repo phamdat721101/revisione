@@ -22,6 +22,12 @@ export class FirebaseService {
     .snapshotChanges();
   }
 
+  getOrders(userKey){
+    return this.db.collection(`orders`,ref => ref.where('uid', '>=', userKey)
+    .where('uid', '<=', userKey + '\uf8ff'))
+    .snapshotChanges();
+  }
+
   createReview(value) {
     return this.db.collection(`reviews`).add({
       title: value.title,
@@ -37,7 +43,7 @@ export class FirebaseService {
     end.setDate(end.getDate() + value.day)
     return this.db.collection(`orders`).add({
       uid: value.uid,
-      hid: value.hid,
+      hotel: value.hotel,
       start: new Date(value.time),
       end: end,
       room: value.room
@@ -50,10 +56,10 @@ export class FirebaseService {
   searchPlaceFilter(places, price){
     return this.db.collection('hotels', ref => ref.where("place","==",places).where("price","==",price)).snapshotChanges();
   }
-//   updateUser(userKey, value){
-//     value.nameToSearch = value.name.toLowerCase();
-//     return this.db.collection('users').doc(userKey).set(value);
-//   }
+  updateUser(userKey, value){
+    // value.nameToSearch = value.name;
+    return this.db.collection('users').doc(userKey).update(value);
+  }
 
 //   deleteUser(userKey){
 //     return this.db.collection('users').doc(userKey).delete();

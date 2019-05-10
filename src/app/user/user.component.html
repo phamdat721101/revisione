@@ -1,9 +1,11 @@
+<hr>
 <div *ngIf="auth.user$ | async as user" class="container">
     <div class="row">
       <div class="col-md-3 ">
            <div class="list-group ">
                 <a routerLink="/" class="list-group-item list-group-item-action active">Home</a>
-                <a routerLink="/user" class="list-group-item list-group-item-action">User Management</a>                 
+                <a routerLink="/user" class="list-group-item list-group-item-action">Order History</a>  
+                <a routerLink="/profile" class="list-group-item list-group-item-action">User Management</a>                 
               </div> 
       </div>
       <div class="col-md-9">
@@ -18,27 +20,25 @@
                   <div class="row">
                       <div class="col-lg-12">
                         <div class="panel panel-default">              
-                          <div class="panel-body">
+                          <div class="panel-body" *ngFor="let order of order$">
                               <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
 <!--TO DO (FEATURE/USER): display orders from db-->
                                   <thead>
-                                      <tr>
-                                          <th>Date</th>                    
+                                      <tr>               
                                           <th>Order id</th>                                    
-                                          <th>Hotel name</th>                                    
-                                          <th>Location</th>                                    
+                                          <th>Hotel name</th>                                   
                                           <th>Number of rooms</th>                                    
-                                          <th>Number of date</th>                                                                          
+                                          <th>Start date</th>                                       
+                                          <th>End date</th>                                                                       
                                       </tr>
                                   </thead>
                                   <tbody>
                                       <tr class="odd gradeX">
-                                          <td>k</td>                    
-                                          <td>k</td>                                    
-                                          <td>k</td>                                    
-                                          <td>j</td>                                    
-                                          <td>f</td>                                    
-                                          <td>f</td>                                       
+                                          <td>{{order.payload.doc.id}}</td>                    
+                                          <td>{{order.payload.doc.data().hotel}}</td>                                    
+                                          <td>{{order.payload.doc.data().room}}</td>                                    
+                                          <td>{{order.payload.doc.data().start.seconds * 1000 | date}}</td>                                    
+                                          <td>{{order.payload.doc.data().end.seconds * 1000 | date}}</td>                                       
                                       </tr>                            
                                   </tbody>
                               </table>                
