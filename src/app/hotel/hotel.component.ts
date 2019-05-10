@@ -23,17 +23,22 @@ export class HotelComponent implements OnInit {
     public auth: AuthService) { }
 
   ngOnInit() {
+    var displayName: any;
     this.route.data.subscribe(routeData => {
       let data = routeData['data'];
       if (data) {
         this.item = data.payload.data();
         this.item.id = data.payload.id;
         this.auth.user$.subscribe(
-          (user) =>  this.createOrder(user.uid)
+          user =>  {
+            this.createOrder(user.uid);
+            this.createReview(user.displayName)
+          }
         )
         this.getReviews(this.item.id);
+        
       }
-      this.createReview();
+      
     })
   }
 
@@ -54,19 +59,21 @@ export class HotelComponent implements OnInit {
     })
   }
 
-  createReview() {
+  createReview(displayName) {
     this.createReviewForm = this.fb.group({
       title: new FormControl(),
       content: new FormControl(),
+      hid: this.item.id,
+      created_at: new Date(),
+      user: displayName
     });
   }
 
   onSubmit(value){
-    console.log("here");
     this.firebaseService.createReview(value)
     .then (
       res => {
-        this.router.navigate(['/hotel/' + this.item.id]);
+        window.location.reload();
       }
     )
   }
