@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
   places: any;  
   price: any;
   id_des: any;
+  reviews: any;
   constructor(private router: Router,
     private formBuilder: FormBuilder,
     private placeservice: FirebaseService) { }   
@@ -20,17 +21,12 @@ export class DashboardComponent implements OnInit {
 
     });
     this.getPlaces();
+    this.getReview();
   }
   getPlaces(){
     this.placeservice.getHotels().subscribe(ref => this.places = ref)
   }
-  searchPlace(){
-    //console.log(this.destination);
-    this.placeservice.searchPlaceFilter(this.destination,this.price).subscribe(result => {      
-      this.router.navigate(['/hotel/'+ result[0].payload.doc.id]);
-    });
-    //console.log(this.id_des);
-    //this.router.navigate(["/search"]);
-  }
-
+  getReview(){
+    this.placeservice.getReview().subscribe(ref => this.reviews = ref);
+  }  
 }

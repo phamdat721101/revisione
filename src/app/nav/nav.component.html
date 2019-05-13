@@ -28,12 +28,24 @@
           <div class="col-12 h-100">
               <nav class="h-100 navbar navbar-expand-lg">
                   <a class="navbar-brand" routerLink="/" style="color: white;">Revisione</a>
+                  
                   <div class="dorne-search-btn">
 <!-- TO DO (FEATURE/SEARCH): search function-->
                         <a id="search-btn" style="color: white;"><i class="fa fa-search" aria-hidden="true"></i>Search</a>
                      </div>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
                   <div class="collapse navbar-collapse" id="dorneNav" style="position: absolute; right: 0px;">
+                        <ul class="navbar-nav mr-auto" id="dorneMenu">
+                            <li class="nav-item active">
+                                <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+                            </li>                            
+                            <li class="nav-item">
+                                <a class="nav-link" routerLink="/search">List</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" routerLink="/explore">Explore</a>
+                            </li>
+                        </ul>
                       <div *ngIf="auth.user$ | async; then authenticated else guest">
                       </div>
                         <ng-template #guest>
