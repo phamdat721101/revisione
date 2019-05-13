@@ -52,8 +52,8 @@ export class FirebaseService {
     });
   }
 
-  searchPlaces(start){
-    return this.db.collection('hotels', ref => ref.orderBy("email")).snapshotChanges();
+  searchPlaces(start,end){
+    return this.db.collection('hotels', ref => ref.orderBy("name").limit(2).startAt(start).endAt(end)).snapshotChanges();
   }
   searchPlaceFilter(places, price){
     return this.db.collection('hotels', ref => ref.where("place","==",places).where("price","==",price)).snapshotChanges();

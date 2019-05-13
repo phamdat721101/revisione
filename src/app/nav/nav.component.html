@@ -2,19 +2,21 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="search-close-btn" id="closeBtn">
+                <div class="search-close-btn" id="closeBtn" style="margin-top: -48px;">
                     <i class="pe-7s-close-circle" aria-hidden="true"></i>
                 </div>
                 <form (ngSubmit)="search()">
-                    <input (keydown)="onChange($event)" type="text" name="caviarSearch" id="search" placeholder="Search Your Desired Destination">
-                    <div *ngFor="let place of places" style="background-color: white;">
-                        <h4><a [routerLink]="['/hotel/',place.payload.doc.id]">{{place.payload.doc.data().name}}</a></h4>                        
-                    </div>                      
-                    <div *ngIf="places?.length < 1">
-                        <hr>
-                        <p>
-                            No results found :(
-                        </p>
+                    <input (keyup)="onChange($event)" type="text" name="caviarSearch" id="search" placeholder="Search Your Desired Destination">
+                    <div>
+                        <div *ngFor="let place of places" style="background-color: white;">
+                            <h4><a [routerLink]="['/hotel/',place.payload.doc.id]">{{place.payload.doc.data().name}}</a></h4>                        
+                        </div>                      
+                        <div *ngIf="places?.length < 1">
+                            <hr>
+                            <p>
+                                No results found :(
+                            </p>
+                        </div>
                     </div>
                     <input type="submit" class="d-none" value="submit">                
                 </form>

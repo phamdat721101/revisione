@@ -11,8 +11,8 @@ import * as $ from 'jquery';
 export class NavComponent implements OnInit {
   places: any;
   id: any;
-  startAt = new Subject()
-  endAt = new Subject()
+  startAt: string;
+  endAt: string;
   constructor(private router: Router,
     public auth: AuthService,
     private placeService: FirebaseService) { 
@@ -23,14 +23,14 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     $('#search-btn, #closeBtn').on('click', function () {
       $('body').toggleClass('search-form-on');
-    });
-    
+    });    
   }
   onChange($event) {
     let q = $event.target.value
-    this.startAt.next(q)
-    this.endAt.next(q+"\uf8ff")
-    this.placeService.searchPlaces(this.startAt).subscribe(results =>{
+    console.log(q);
+    this.startAt = q;
+    this.endAt = q+"\uf8ff";
+    this.placeService.searchPlaces(this.startAt,this.endAt).subscribe(results =>{
       this.places = results; 
       this.id = results;
     })            
