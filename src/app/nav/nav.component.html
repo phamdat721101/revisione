@@ -29,14 +29,9 @@
       <div class="row h-100">
           <div class="col-12 h-100">
               <nav class="h-100 navbar navbar-expand-lg">
-                  <a class="navbar-brand" routerLink="/" style="color: white;">Revisione</a>
-                  
-                  <div class="dorne-search-btn">
-<!-- TO DO (FEATURE/SEARCH): search function-->
-                        <a id="search-btn" style="color: white;"><i class="fa fa-search" aria-hidden="true"></i>Search</a>
-                     </div>
+                  <a class="navbar-brand" routerLink="/" style="color: white;">Revisione</a>                                    
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
-                  <div class="collapse navbar-collapse" id="dorneNav" style="position: absolute; right: 0px;">
+                  <div class="collapse navbar-collapse" id="dorneNav">
                         <ul class="navbar-nav mr-auto" id="dorneMenu">
                             <li class="nav-item active">
                                 <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
@@ -48,23 +43,24 @@
                                 <a class="nav-link" routerLink="/explore">Explore</a>
                             </li>
                         </ul>
-                      <div *ngIf="auth.user$ | async; then authenticated else guest">
-                      </div>
-                        <ng-template #guest>
-                            
-                            <div class="dorne-add-listings-btn">
-                                <button class="btn dorne-btn" (click)="auth.googleSignin()">Sign in</button>
-                            </div>
-
-                        </ng-template>
-                        <ng-template #authenticated>
-                            <div *ngIf="auth.user$ | async as user" style="padding: 80px;">
-                            <a routerLink="/user" style="color: white;">{{user.displayName}} </a>
-                            </div>
-                            <div class="dorne-add-listings-btn">
-                                <button class="btn dorne-btn" (click)="auth.signOut()">Sign out</button>
-                    </div>
-                        </ng-template>
+                        <div class="dorne-search-btn">
+                            <!-- TO DO (FEATURE/SEARCH): search function-->
+                            <a id="search-btn" style="color: white;"><i class="fa fa-search" aria-hidden="true"></i>Search</a>
+                        </div>
+                        <div *ngIf="auth.user$ | async; then authenticated else guest"></div>
+                        <div class="dorne-add-listings-btn">
+                            <ng-template #guest>                                                        
+                                <button class="btn dorne-btn" (click)="auth.googleSignin()">Sign in</button>                            
+                            </ng-template>
+                        </div>
+                        <div class="dorne-add-listings-btn">
+                            <ng-template #authenticated>
+                                <div *ngIf="auth.user$ | async as user">
+                                    <a *ngIf="auth.user$ | async as user" routerLink="/user" style="color: white;">{{user.displayName}} </a>
+                                </div>                            
+                                <button class="btn dorne-btn" (click)="auth.signOut()">Sign out</button>                            
+                            </ng-template>
+                        </div>
                   </div>
               </nav>
           </div>
