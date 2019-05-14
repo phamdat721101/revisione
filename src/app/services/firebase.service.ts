@@ -40,6 +40,19 @@ export class FirebaseService {
     });
   }
 
+  createHotel(value) {
+    return this.db.collection(`hotels`).add({
+      name: value.name,
+      email: value.email,
+      phone: value.phone,
+      place: value.place,
+      address: value.address,
+      price: value.price,
+      description: value.description,
+      image:"https://firebasestorage.googleapis.com/v0/b/revisione-ea22e.appspot.com/o/feature-3.jpg?alt=media&token=97e5b36f-1fbb-4c20-a527-8cf77bc4d129"
+    });
+  }
+
   createOrder(value) {
     var end = new Date(value.time);
     end.setDate(end.getDate() + value.day)
