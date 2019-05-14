@@ -17,11 +17,11 @@
                   <form (ngSubmit)="searchPlace()">
                       <select class="custom-select" id="destinations" [(ngModel)] = "destination" [ngModelOptions]="{standalone: true}">
                           <option selected>Your Destinations</option>
-                          <option *ngFor="let place of places">{{place.payload.doc.data().place}}</option>                          
+                          <option *ngFor="let place of arrs">{{place}}</option>                          
                       </select>                      
                       <select class="custom-select" id="price-range" [(ngModel)] = "price" [ngModelOptions]="{standalone: true}">
                           <option selected>Price Range</option>
-                          <option *ngFor="let place of places">{{place.payload.doc.data().price}}</option>                          
+                          <option *ngFor="let place of arrs1">{{place}}</option>                          
                       </select>                                          
                       <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
                   </form>
@@ -32,7 +32,7 @@
       <!-- Explore Search Result -->
       <div class="explore-search-result" >
           <!-- Single Features Area -->
-          <div class="single-features-area" *ngFor="let place of placesFilter">
+          <div class="single-features-area" *ngFor="let place of placesFilter" (click)="getMap(place)">
               <img src="{{place.payload.doc.data().image}}" alt="">
               <!-- Price -->
               <div class="price-start">
@@ -43,7 +43,7 @@
                       <h5>{{place.payload.doc.data().name}}</h5>                      
                   </div>
                   <div class="feature-favourite">
-                      <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                      <a><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                   </div>
               </div>
           </div>          
