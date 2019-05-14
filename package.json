@@ -39,7 +39,8 @@
     "postcss-loader": "^3.0.0",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.5.1",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "typescript": "^2.7.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.3",
@@ -64,7 +65,7 @@
     "typescript": "^2.7.2"
   },
   "engines": {
-    "node": "6.11.0",
-    "npm": "3.10.10"
+    "node": "8.11.1",
+    "npm": "6.5.0"
   }
 }
