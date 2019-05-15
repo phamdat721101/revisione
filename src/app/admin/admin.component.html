@@ -1,0 +1,77 @@
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 ">
+         <div class="list-group ">
+              <a routerLink="/" class="list-group-item list-group-item-action active">Home</a>
+              <a routerLink="/user" class="list-group-item list-group-item-action">Order History</a> 
+              <a routerLink="/profile" class="list-group-item list-group-item-action">User Management</a>                 
+            </div> 
+    </div>
+
+<div class="col-md-9">
+  <div class="card">
+      <div class="card-body">
+          <div class="row">
+              <div class="col-md-12">
+                  <h4>Your Profile</h4>
+                  <hr>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)">
+                        <div class="form-group row">
+                          <label for="username" class="col-4 col-form-label">Name</label> 
+                          <div class="col-8">
+                            <input id="username" name="username" formControlName="name" placeholder="name" class="form-control here" type="text" required>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="name" class="col-4 col-form-label">Email</label> 
+                          <div class="col-8">
+                            <input id="name" formControlName="email" placeholder="email" class="form-control here" type="text" required>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="lastname" class="col-4 col-form-label">Phone</label> 
+                          <div class="col-8">
+                            <input id="asd" formControlName="phone" placeholder="phone" class="form-control here" type="text" require>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="lastname" class="col-4 col-form-label">Place</label> 
+                          <div class="col-8">
+                            <input id="lastname" formControlName="place" placeholder="place" class="form-control here" type="text" require>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="lastname" class="col-4 col-form-label">Address</label> 
+                          <div class="col-8">
+                            <input id="lastaname" formControlName="address" placeholder="address" class="form-control here" type="text" require>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="lastname" class="col-4 col-form-label">Price</label> 
+                          <div class="col-8">
+                            <input id="lastnaawdme" formControlName="price" placeholder="price" class="form-control here" type="text" require>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="lastname" class="col-4 col-form-label">Description</label> 
+                          <div class="col-8">
+                            <input id="lastaesarname" formControlName="description" placeholder="description" class="form-control here" type="text" require>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="offset-4 col-8">
+                            <input type="submit" class="btn btn-primary" value="Add Hotel">
+                          </div>
+                        </div>
+                      </form>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>
