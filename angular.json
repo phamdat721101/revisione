@@ -64,7 +64,6 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "proxyConfig": "proxy.conf.json",
             "browserTarget": "tech-ass:build"
           },
           "configurations": {
@@ -118,8 +117,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "tech-ass:serve",
-            "proxyConfig": "proxy.conf.json"
+            "devServerTarget": "tech-ass:serve"
           }
         },
         "lint": {
