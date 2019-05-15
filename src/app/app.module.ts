@@ -11,7 +11,6 @@ import { HotelResolver } from './hotel/hotel.resolver';
 import { UserComponent } from './user/user.component';
 import { ListComponent } from './list/list.component';
 import { ExploreComponent } from './explore/explore.component';
-import { AdminComponent } from './admin/admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /*--Import service--*/
 import { AuthService } from './services/auth.service';
@@ -27,7 +26,6 @@ import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
   { path: '', component:DashboardComponent},
-  { path: 'admin', component:AdminComponent},
   { path: 'hotel/:id', component:HotelComponent, resolve:{data : HotelResolver}},
   { path: 'user', component:UserComponent},
   { path: 'profile', component:ProfileComponent},
@@ -43,7 +41,6 @@ const appRoutes: Routes = [
     DashboardComponent,
     HotelComponent,
     UserComponent,
-    AdminComponent,
     ListComponent,
     ProfileComponent,
     FooterComponent
