@@ -61,7 +61,9 @@
     "typescript": "^2.7.2",
     "zone.js": "^0.8.26"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/angular": "^1.6.54"
+  },
   "engines": {
     "node": "8.11.1",
     "npm": "6.5.0"
