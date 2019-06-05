@@ -103,7 +103,7 @@ export class HotelComponent implements OnInit {
       .then (
         res => {
 
-          alert("Your bill is "+value.day*value.cost+"$. You can check your order at your profile page.")
+          alert("Your bill is "+value.day*value.cost*value.room+"$. You can check your order at your profile page.")
           window.location.reload();
         }
       )

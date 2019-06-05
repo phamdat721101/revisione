@@ -54,7 +54,8 @@ export class FirebaseService {
   }
 
   createOrder(value) {
-    var end = new Date(value.time);
+    var end = new Date(value.time)
+    var cost = value.day*value.cost*value.room
     end.setDate(end.getDate() + value.day)
     return this.db.collection(`orders`).add({
       uid: value.uid,
@@ -62,7 +63,7 @@ export class FirebaseService {
       start: new Date(value.time),
       end: end,
       room: value.room,
-      cost: value.cost*value.dat
+      cost: cost
     });
   }
 
