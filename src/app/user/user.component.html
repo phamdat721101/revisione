@@ -29,7 +29,8 @@
                                           <th>Hotel name</th>                                   
                                           <th>Number of rooms</th>                                    
                                           <th>Start date</th>                                       
-                                          <th>End date</th>                                                                       
+                                          <th>End date</th>                                        
+                                          <th>Price</th>                                                                        
                                       </tr>
                                   </thead>
                                   <tbody>
@@ -38,7 +39,8 @@
                                           <td>{{order.payload.doc.data().hotel}}</td>                                    
                                           <td>{{order.payload.doc.data().room}}</td>                                    
                                           <td>{{order.payload.doc.data().start.seconds * 1000 | date}}</td>                                    
-                                          <td>{{order.payload.doc.data().end.seconds * 1000 | date}}</td>                                       
+                                          <td>{{order.payload.doc.data().end.seconds * 1000 | date}}</td>                                     
+                                          <td>{{order.payload.doc.data().price}}</td>                                       
                                       </tr>                            
                                   </tbody>
                               </table>                

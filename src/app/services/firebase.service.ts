@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, validateEventsArray } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -61,7 +61,8 @@ export class FirebaseService {
       hotel: value.hotel,
       start: new Date(value.time),
       end: end,
-      room: value.room
+      room: value.room,
+      cost: value.cost*value.dat
     });
   }
 
