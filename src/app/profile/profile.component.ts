@@ -57,7 +57,6 @@ export class ProfileComponent implements OnInit {
             }
           }
         }
-        console.log('//////')
         var sendData = {
           "displayName": value[0],
           "firstname": value[1],

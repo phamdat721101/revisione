@@ -49,6 +49,7 @@ export class HotelComponent implements OnInit {
       room: new FormControl(),
       day: new FormControl(),
       hotel: this.item.name,
+      cost: this.item.price,
     });
   }
 
@@ -79,11 +80,35 @@ export class HotelComponent implements OnInit {
   }
   
   onOrder(value){
-    this.firebaseService.createOrder(value)
-    .then (
-      res => {
-        window.location.reload();
-      }
-    )
+    var keys = Object.keys(value)
+    var values = Object.values(value)
+    var valid = true
+
+    var time = new Date(value.time);
+    var now = new Date();
+    if(time < now){
+      valid = false
+      alert("You cannot book a date in the past")
+    }
+    if(!(Number.isInteger(value.room) && value.room > 0)){
+      valid = false
+      alert("You must input a valid number of rooms")
+    }
+    if(!(Number.isInteger(value.day) && value.day > 0)){
+      valid = false
+      alert("You must input a valid number of days")
+    }
+    if(valid){
+      this.firebaseService.createOrder(value)
+      .then (
+        res => {
+
+          alert("Your bill is "+value.day*value.cost+". You can check your order at your profile page.")
+          window.location.reload();
+        }
+      )
+
+    }
+
   }
 }
