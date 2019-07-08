@@ -36,9 +36,9 @@ export class HotelComponent implements OnInit {
           }
         )
         this.getReviews(this.item.id);
-        
+
       }
-      
+
     })
   }
 
@@ -70,14 +70,28 @@ export class HotelComponent implements OnInit {
   }
 
   onSubmit(value){
-    this.firebaseService.createReview(value)
-    .then (
-      res => {
-        window.location.reload();
-      }
-    )
+    let header = (<HTMLInputElement>document.getElementById("Header")).value;
+    header = header.replace(/(^\s*)|(\s*$)/gi,"");
+    header = header.replace(/[ ]{2,}/gi," ");
+    header = header.replace(/\n /,"\n");
+
+    let msg = (<HTMLInputElement>document.getElementById("Message")).value;
+    msg = msg.replace(/(^\s*)|(\s*$)/gi,"");
+    msg = msg.replace(/[ ]{2,}/gi," ");
+    msg = msg.replace(/\n /,"\n");
+
+    if (msg.split(' ').length <= 200 || header === null) {
+      alert("Please check that you have entered title and your review has more than 200 words!");
+    } else {
+      this.firebaseService.createReview(value)
+      .then (
+        res => {
+          window.location.reload();
+        }
+      );
+    }
   }
-  
+
   onOrder(value){
     this.firebaseService.createOrder(value)
     .then (
