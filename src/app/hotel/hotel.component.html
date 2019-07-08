@@ -7,7 +7,7 @@
                 <div class="single-listing-content">
 
                     <div class="listing-title">
-                        <h4>{{item.name}}</h4> 
+                        <h4>{{item.name}}</h4>
                         <h6>{{item.address}}, {{item.place}}</h6>
                         <h6>Price: {{item.price}}</h6>
                     </div>
@@ -15,13 +15,13 @@
                     <div class="overview-content mt-50" id="overview">
                         <p>{{item.description}}</p>
                     </div>
-                    
+
 <!-- TO DO (FEATURE/REVIEW): insert into db-->
                     <div  *ngIf="auth.user$ | async as user" class="contact-form-widget mt-50" style="background-color: #f3edff;">
                         <form [formGroup]="createReviewForm" (ngSubmit)="onSubmit(createReviewForm.value)">
                             <div class="row">
                                 <div class="col-12">
-                                    <input type="text" formControlName="title" class="form-control" placeholder="Title">
+                                    <input type="text" formControlName="title" class="form-control" id="Header" placeholder="Title">
                                 </div>
                                 <div class="col-12">
                                     <textarea formControlName="content" class="form-control" id="Message" cols="30" rows="10" placeholder="Contents"></textarea>
@@ -50,9 +50,9 @@
                 </div>
 
             </div>
-            
+
             <div class="col-12 col-md-8 col-lg-4">
-                <div class="listing-sidebar">         
+                <div class="listing-sidebar">
                     <div *ngIf="auth.user$ | async as user" class="book-a-table-widget mt-50">
                         <form [formGroup]="orderForm" (ngSubmit)="onOrder(orderForm.value)">
                             <input class="custom-select" type="date" formControlName="time" placeholder="Date" >
