@@ -80,8 +80,8 @@ export class HotelComponent implements OnInit {
     msg = msg.replace(/[ ]{2,}/gi," ");
     msg = msg.replace(/\n /,"\n");
 
-    if (msg.split(' ').length <= 200 || header === null) {
-      alert("Please check that you have entered title and your review has more than 200 words!");
+    if (msg.split(' ').length <= 5 || header === null) {
+      alert("Please check that you have entered title and your review has more than 5 words!");
     } else {
       this.firebaseService.createReview(value)
       .then (
