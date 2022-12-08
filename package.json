@@ -37,7 +37,7 @@
     "codelyzer": "~4.2.1",
     "core-js": "^2.5.4",
     "css-loader": "^2.1.1",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "firebase": "^5.11.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
